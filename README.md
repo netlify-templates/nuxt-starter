@@ -1,10 +1,16 @@
 # Nuxt Starter
 
-![Netlify + Nuxt](https://user-images.githubusercontent.com/43764894/223556133-b99e4822-1da3-4f94-941e-fa95cfb42562.png)
+![Netlify + Nuxt Starter Preview](nuxt-starter-preview.jpg)
 
-Nuxt Starter is a minimal template created for quick landing pages, built with Nuxt and Tailwind CSS.
+Nuxt Starter is a minimal template designed for creating quick landing pages, built with Nuxt and Tailwind CSS, and powered by Nuxt Content.
 
 **View demo:** [https://demo-nuxt-starter.netlify.app/](https://demo-nuxt-starter.netlify.app/)
+
+A customizable Nuxt starter using:
+
+- [Nuxt](https://nuxt.com/) v3.x 
+- [Tailwind CSS](https://tailwindcss.com/) v3.x
+- [Nuxt Content](https://content.nuxt.com/) support
 
 ## Build Setup
 
@@ -36,6 +42,7 @@ Here are a few suggestions on what to do next if you're new to Netlify Visual Ed
 
 - Check [Nuxt on Netlify documentation](https://docs.netlify.com/frameworks/nuxt/).
 - Check [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+- Check [Nuxt Content](https://content.nuxt.com/get-started/installation)
 
 ## Support
 
