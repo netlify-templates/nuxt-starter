@@ -2,6 +2,8 @@
 
 ![Netlify + Nuxt Starter Preview](nuxt-starter-preview.jpg)
 
+---
+
 Nuxt Starter is a minimal template designed for creating quick landing pages, built with Nuxt and Tailwind CSS, and powered by Nuxt Content.
 
 **View demo:** [https://demo-nuxt-starter.netlify.app/](https://demo-nuxt-starter.netlify.app/)
