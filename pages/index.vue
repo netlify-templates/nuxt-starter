@@ -28,6 +28,12 @@ definePageMeta({
       :items="page.features.items"
     >
     </Features>
+    <Testimonials
+      :title="page.testimonials.title"
+      :description="page.testimonials.description"
+      :items="page.testimonials.items"
+    >
+    </Testimonials>
     <Cta
       :title="page.cta.title"
       :description="page.cta.description"

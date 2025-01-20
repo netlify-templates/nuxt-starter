@@ -1,14 +1,14 @@
 <script setup>
 const props = defineProps({
-    title: {
-      type: String,
-      required: false,
-    },
-    description: {
-      type: String,
-      required: false,
-    },
-    buttons: [
+  title: {
+    type: String,
+    required: false,
+  },
+  description: {
+    type: String,
+    required: false,
+  },
+  buttons: [
     {
       label: {
         type: String,

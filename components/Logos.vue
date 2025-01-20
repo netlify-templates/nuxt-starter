@@ -1,10 +1,10 @@
 <script setup>
 const props = defineProps({
-    title: {
-      type: String,
-      required: false,
-    },
-    icons: [
+  title: {
+    type: String,
+    required: false,
+  },
+  icons: [
     {
       name: {
         type: String,
