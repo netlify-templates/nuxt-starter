@@ -17,7 +17,7 @@ const props = defineProps({
     <blockquote v-for="item in items" class="p-8 mb-8 border-2 border-dashed rounded break-inside-avoid sm:p-12">
       <p class="text-zinc-500" v-if="item.quote">{{ item.quote }}</p>
       <footer class="flex items-center gap-2 mt-4" v-if="item.author">
-        <img :src="item.author.avatar" :alt="item.author.name" class="object-cover w-16 h-16 rounded-full shrink-0"
+        <NuxtImg :src="item.author.avatar" :alt="item.author.name" width="64" height="64" class="object-cover w-16 h-16 rounded-full shrink-0"
           v-if="item.author.avatar" />
         <div class="text-sm" v-if="item.author.name || item.author.title">
           <p class="font-bold text-zinc-800" v-if="item.author.name">{{ item.author.name }}</p>
