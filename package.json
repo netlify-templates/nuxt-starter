@@ -19,5 +19,8 @@
     "tailwindcss": "^3.4.17",
     "vue": "^3.4.3",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@nuxt/image": "^1.9.0"
   }
 }
