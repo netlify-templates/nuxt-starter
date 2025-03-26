@@ -9,11 +9,6 @@ export default defineNuxtConfig({
       tailwindcss(),
     ],
   },
-  postcss: {
-    plugins: {
-      "@tailwindcss/postcss": {},
-    },
-  },
   experimental: { appManifest: false },
   modules: ["nuxt-icon", "@nuxt/image"],
   compatibilityDate: "2024-12-18",
