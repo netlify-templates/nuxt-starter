@@ -1,0 +1,104 @@
+{
+  "hero": {
+    "title": "Build Blazing-Fast Websites with Nuxt.js & Netlify",
+    "description": "Craft high-performing, SEO-friendly web experiences with the dynamic power of Nuxt.js and the speed of Netlify's global edge network.",
+    "image": "images/hero.jpg",
+    "imageAlt": "Nuxt logo and title on abstract background",
+    "buttons": [
+      {
+        "label": "Get Started Today",
+        "url": "https://www.netlify.com/"
+      }
+    ]
+  },
+  "logos": {
+    "title": "Trusted by the world's best",
+    "icons": [
+      {
+        "name": "i-simple-icons-gitlab"
+      },
+      {
+        "name": "i-simple-icons-github"
+      },
+      {
+        "name": "i-simple-icons-openai"
+      },
+      {
+        "name": "i-simple-icons-google"
+      },
+      {
+        "name": "i-simple-icons-netlify"
+      }
+    ]
+  },
+  "features": {
+    "title": "Why choose Nuxt.js?",
+    "description": "Nuxt.js is a powerful framework built on top of Vue.js that provides an excellent developer experience.",
+    "items": [
+      {
+        "title": "Server-Side Rendering",
+        "description": "Nuxt.js allows you to build SSR applications with Vue.js, ensuring fast initial page loads and better SEO."
+      },
+      {
+        "title": "Static Site Generation",
+        "description": "You can pre-render pages at build time for static websites. This helps with performance and scalability by serving content directly from a CDN."
+      },
+      {
+        "title": "Auto-Routing",
+        "description": "Nuxt automatically generates routes based on the file structure inside the pages directory, reducing the need for manual configuration."
+      },
+      {
+        "title": "File-based Configuration",
+        "description": "Nuxt uses a convention-over-configuration approach, allowing you to define configurations easily in nuxt.config.js without much boilerplate."
+      },
+      {
+        "title": "Dynamic Imports",
+        "description": "It supports lazy loading of components with dynamic imports to improve performance by splitting the code into smaller chunks."
+      },
+      {
+        "title": "SEO Friendly",
+        "description": "With SSR, SSG, and automatic meta tag handling, Nuxt.js ensures your application is SEO-friendly."
+      }
+    ]
+  },
+  "testimonials": {
+    "title": "What Our Users Are Saying",
+    "description": "Hear from our clients about their experiences working with Nuxt and Netlify.",
+    "items": [
+      {
+        "quote": "Nuxt has made building our projects so much easier and more enjoyable! Its simple setup and powerful features help us create fast, responsive websites with minimal effort.",
+        "author": {
+          "name": "Daniel H.",
+          "title": "Marketing Specialist at Some Company",
+          "avatar": "images/person-1.jpg"
+        }
+      },
+      {
+        "quote": "The scalability offered by Netlify and the flexibility of Nuxt have allowed us to expand our site's functionality without worrying about performance issues. This combination is a powerful solution for any growing business.",
+        "author": {
+          "name": "Sarah L.",
+          "title": "CEO at Some Company",
+          "avatar": "images/person-2.jpg"
+        }
+      },
+      {
+        "quote": "Switching to Nuxt and Netlify was a game-changer for our development process. The seamless integration between the two platforms allowed us to deploy faster and with fewer headaches.",
+        "author": {
+          "name": "Mark T.",
+          "title": "Frontend Engineer at Some Company",
+          "avatar": "images/person-3.jpg"
+        }
+      }
+    ]
+  },
+  "cta": {
+    "title": "Start Building with Nuxt & Netlify",
+    "description": "Let your next project be smarter, faster, and effortlessly deployable.",
+    "buttons": [
+      {
+        "label": "Get Started Today",
+        "url": "https://www.netlify.com/"
+      }
+    ]
+  }
+} 

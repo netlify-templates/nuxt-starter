@@ -1,14 +1,7 @@
 <script setup>
-const { data: page } = await useAsyncData("index", () =>
-  queryContent("/").findOne()
-);
-if (!page.value) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: "Page not found",
-    fatal: true,
-  });
-}
+import pageData from '@/data/index.json'
+const page = ref(pageData)
+
 definePageMeta({
   layout: "default",
 });
@@ -28,7 +21,7 @@ definePageMeta({
       :title="page.features.title"
       :description="page.features.description"
       :items="page.features.items"
-    > test</Features>
+    ></Features>
     <Testimonials
       :title="page.testimonials.title"
       :description="page.testimonials.description"
