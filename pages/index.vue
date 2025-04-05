@@ -1,36 +1,23 @@
 <script setup>
-import pageData from '@/data/index.json'
-const page = ref(pageData)
-
-definePageMeta({
-  layout: "default",
-});
+// No need for pageData import anymore since we're directly adding the content
 </script>
 
 <template>
-  <Container>
-    <Hero
-      :title="page.hero.title"
-      :description="page.hero.description"
-      :image="page.hero.image"
-      :imageAlt="page.hero.imageAlt"
-      :buttons="page.hero.buttons"
-    ></Hero>
-    <Logos :title="page.logos.title" :icons="page.logos.icons"></Logos>
-    <Features
-      :title="page.features.title"
-      :description="page.features.description"
-      :items="page.features.items"
-    ></Features>
-    <Testimonials
-      :title="page.testimonials.title"
-      :description="page.testimonials.description"
-      :items="page.testimonials.items"
-    ></Testimonials>
-    <Cta
-      :title="page.cta.title"
-      :description="page.cta.description"
-      :buttons="page.cta.buttons"
-    ></Cta>
-  </Container>
+  <div class="flex flex-col items-center justify-center space-y-4">
+    <!-- Name -->
+    <h1 class="text-4xl font-bold">Bit of Everything</h1>
+
+    <!-- Link Button -->
+    <a href="https://boe.com.pk" target="_blank">
+      <button class="bg-blue-500 text-white px-6 py-2 rounded">Visit BOE</button>
+    </a>
+
+    <!-- Contact Number -->
+    <p class="text-lg">Call us at: +92 3377022338</p>
+  </div>
 </template>
+
+<style scoped>
+/* You can add custom styles here if needed */
+</style>
+
