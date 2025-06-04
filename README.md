@@ -6,7 +6,7 @@
 
 Nuxt Starter is a minimal template designed for creating quick landing pages, built with Nuxt 3 and Tailwind CSS.
 
-**View demo:** [https://demo-nuxt-starter.netlify.app/](https://demo-nuxt-starter.netlify.app/)
+**View demo:** [www.vplaw.com)
 
 ## Deploy to Netlify
 
