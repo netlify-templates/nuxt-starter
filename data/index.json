@@ -1,104 +1,140 @@
-{
-  "hero": {
-    "title": "Build Blazing-Fast Websites with Nuxt.js & Netlify",
-    "description": "Craft high-performing, SEO-friendly web experiences with the dynamic power of Nuxt.js and the speed of Netlify's global edge network.",
-    "image": "images/hero.jpg",
-    "imageAlt": "Nuxt logo and title on abstract background",
-    "buttons": [
-      {
-        "label": "Get Started Today",
-        "url": "https://www.netlify.com/"
-      }
-    ]
-  },
-  "logos": {
-    "title": "Trusted by the world's best",
-    "icons": [
-      {
-        "name": "i-simple-icons-gitlab"
-      },
-      {
-        "name": "i-simple-icons-github"
-      },
-      {
-        "name": "i-simple-icons-openai"
-      },
-      {
-        "name": "i-simple-icons-google"
-      },
-      {
-        "name": "i-simple-icons-netlify"
-      }
-    ]
-  },
-  "features": {
-    "title": "Why choose Nuxt.js?",
-    "description": "Nuxt.js is a powerful framework built on top of Vue.js that provides an excellent developer experience.",
-    "items": [
-      {
-        "title": "Server-Side Rendering",
-        "description": "Nuxt.js allows you to build SSR applications with Vue.js, ensuring fast initial page loads and better SEO."
-      },
-      {
-        "title": "Static Site Generation",
-        "description": "You can pre-render pages at build time for static websites. This helps with performance and scalability by serving content directly from a CDN."
-      },
-      {
-        "title": "Auto-Routing",
-        "description": "Nuxt automatically generates routes based on the file structure inside the pages directory, reducing the need for manual configuration."
-      },
-      {
-        "title": "File-based Configuration",
-        "description": "Nuxt uses a convention-over-configuration approach, allowing you to define configurations easily in nuxt.config.js without much boilerplate."
-      },
-      {
-        "title": "Dynamic Imports",
-        "description": "It supports lazy loading of components with dynamic imports to improve performance by splitting the code into smaller chunks."
-      },
-      {
-        "title": "SEO Friendly",
-        "description": "With SSR, SSG, and automatic meta tag handling, Nuxt.js ensures your application is SEO-friendly."
-      }
-    ]
-  },
-  "testimonials": {
-    "title": "What Our Users Are Saying",
-    "description": "Hear from our clients about their experiences working with Nuxt and Netlify.",
-    "items": [
-      {
-        "quote": "Nuxt has made building our projects so much easier and more enjoyable! Its simple setup and powerful features help us create fast, responsive websites with minimal effort.",
-        "author": {
-          "name": "Daniel H.",
-          "title": "Marketing Specialist at Some Company",
-          "avatar": "images/person-1.jpg"
-        }
-      },
-      {
-        "quote": "The scalability offered by Netlify and the flexibility of Nuxt have allowed us to expand our site's functionality without worrying about performance issues. This combination is a powerful solution for any growing business.",
-        "author": {
-          "name": "Sarah L.",
-          "title": "CEO at Some Company",
-          "avatar": "images/person-2.jpg"
-        }
-      },
-      {
-        "quote": "Switching to Nuxt and Netlify was a game-changer for our development process. The seamless integration between the two platforms allowed us to deploy faster and with fewer headaches.",
-        "author": {
-          "name": "Mark T.",
-          "title": "Frontend Engineer at Some Company",
-          "avatar": "images/person-3.jpg"
-        }
-      }
-    ]
-  },
-  "cta": {
-    "title": "Start Building with Nuxt & Netlify",
-    "description": "Let your next project be smarter, faster, and effortlessly deployable.",
-    "buttons": [
-      {
-        "label": "Get Started Today",
-        "url": "https://www.netlify.com/"
-      }
-    ]
-  }
-} 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EXCALIBUR™ Email System</title>
+  <link rel="icon" href="0-CSM-new-logo.png" type="image/png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom right, #0a0f2c, #1c2238);
+      color: #e0e0e0;
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    header img {
+      max-width: 280px;
+      height: auto;
+    }
+    h1 {
+      font-size: 2.5rem;
+      color: #ffffff;
+      margin-bottom: 20px;
+      animation: slideInDown 1s ease-out;
+    }
+    p {
+      margin-bottom: 20px;
+      color: #cccccc;
+    }
+    .highlight {
+      color: #ffffff;
+      font-weight: bold;
+    }
+    .cta-button {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 14px 28px;
+      background-color: #1e90ff;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+    .cta-button:hover {
+      background-color: #4682b4;
+    }
+    .form-container {
+      background: #121a32;
+      padding: 30px;
+      border-radius: 10px;
+      margin-top: 40px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      animation: slideInUp 1.5s ease-out;
+    }
+    input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #1e90ff;
+      color: #ffffff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #4682b4;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes slideInDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes slideInUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <img src="A-Click Storm Media-USE.png" alt="ClickStorm Logo">
+    </header>
+
+    <h1>URGENT: Your Competition Is Already Using This "Underground" Email System To Steal Your Best Clients</h1>
+    <p>Listen, I need to be brutally honest with you...</p>
+    <p>While you're grinding away 12-hour days trying to keep your business afloat, your <span class="highlight">smartest competitors</span> have discovered something that's giving them an unfair advantage.</p>
+    <p>They're using email marketing the RIGHT way. And it's literally printing money for them while you're still chasing prospects who ghost you after the first meeting.</p>
+    <p><strong>Here's The Painful Truth:</strong><br>85% of consumers actually PREFER communicating with businesses through email. Yet most business owners are doing it completely wrong.</p>
+    <p>They're sending emails that land in spam folders. Their messages look like every other generic pitch. And worst of all? Nobody's even opening them.</p>
+    <p>That's why I developed what I call my <span class="highlight">EXCALIBUR™ System</span>.</p>
+    <p><strong>This Isn't Your Typical "Email Marketing"</strong><br>Most email marketers focus on writing pretty copy. I focus on something way more important: making sure your emails actually GET DELIVERED, AVOID the spam and promo folders, and most importantly... GET OPENED.</p>
+    <p>My EXCALIBUR™ System is built for high-ticket service providers like dentists, accountants, and lawyers who need to generate serious revenue fast.</p>
+    <p><strong>Here's What Happens When We Work Together:</strong><br>Within 30 days, you'll have a money-printing email system that works like clockwork. Your existing list becomes your most valuable asset. Prospects will be calling YOU. You'll be the obvious choice. And you'll finally stop competing on price.</p>
+    <p><strong>But Here's The Problem...</strong><br>I can only work with a handful of clients at a time. The EXCALIBUR™ System requires my personal attention to customize it for your specific business. And I'm getting slammed with requests.</p>
+    <p><strong>So Here's My Offer (Only Available For 72 Hours):</strong><br>If you've got a list of 5,000+ people, an offer worth $2,500 or more, and you're ready to move FAST... I'll implement my complete EXCALIBUR™ System for your business.</p>
+    <ul>
+      <li>✔ Reactivation campaigns that wake up your dead leads</li>
+      <li>✔ Email sequences that turn prospects into buyers automatically</li>
+      <li>✔ Opt-in pages that actually convert cold traffic</li>
+      <li>✔ Ads that bring in qualified prospects</li>
+      <li>✔ Complete deliverability optimization so your emails hit the inbox every time</li>
+    </ul>
+    <p><strong>My Iron-Clad Guarantee:</strong><br>If you don't see a measurable increase in qualified leads within 60 days, I'll refund every penny AND pay you $1,000 for wasting your time.</p>
+    <p><strong>But There's A Catch...</strong><br>I'm only accepting 3 new clients this month. Period.</p>
+    <p>Click below now to grab one of the remaining spots before your competitors do:</p>
+    <a class="cta-button" href="https://calendly.com/nocapcopy/confidence" target="_blank">Book Your Spot Now</a>
+
+    <div class="form-container">
+      <h2 style="color: #fff; margin-bottom: 20px;">Get My Free Email Cheatsheet</h2>
+      <form action="https://copyvin.com/cheatsheet" method="GET">
+        <input type="text" name="name" placeholder="Full Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+        <button type="submit">Send Me The Cheatsheet</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
