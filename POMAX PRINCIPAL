@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POMAX | Ropa Deportiva</title>
+  <style>
+    body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
+    header { background-color: #111; color: white; padding: 2rem; text-align: center; }
+    header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+    nav { background-color: #222; padding: 1rem; text-align: center; }
+    nav a { color: white; margin: 0 1rem; text-decoration: none; font-weight: bold; }
+    section { padding: 2rem; max-width: 1200px; margin: auto; }
+    .productos { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    .producto { background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); padding: 1rem; text-align: center; }
+    .producto img { max-width: 100%; border-radius: 8px; }
+    .producto h3 { margin: 1rem 0 0.5rem; }
+    .producto p { color: #666; }
+    footer { background: #111; color: white; text-align: center; padding: 1.5rem; margin-top: 2rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>POMAX</h1>
+    <p>Ropa deportiva para quienes nunca se rinden</p>
+  </header>
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#productos">Productos</a>
+    <a href="#nosotros">Nosotros</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="productos">
+    <h2>Nuestros Productos</h2>
+    <div class="productos">
+      <div class="producto">
+        <img src="https://via.placeholder.com/250x300" alt="Camiseta deportiva">
+        <h3>Camiseta Dry-Fit</h3>
+        <p>Comodidad, transpirabilidad y estilo.</p>
+      </div>
+      <div class="producto">
+        <img src="https://via.placeholder.com/250x300" alt="Pantalón deportivo">
+        <h3>Pantalón Jogger</h3>
+        <p>Ideal para entrenar o descansar.</p>
+      </div>
+      <div class="producto">
+        <img src="https://via.placeholder.com/250x300" alt="Top deportivo">
+        <h3>Top Femenino</h3>
+        <p>Soporte y libertad en cada movimiento.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="nosotros">
+    <h2>Sobre POMAX</h2>
+    <p>
+      En POMAX creemos que la disciplina se viste. Nuestra ropa está diseñada para acompañar a los que entrenan bajo la lluvia, los que se levantan antes del sol y los que no conocen la palabra rendirse.
+    </p>
+  </section>
+
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Escribinos a <strong>contacto@pomax.com</strong> o seguinos en redes sociales @pomaxwear.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 POMAX. Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>
