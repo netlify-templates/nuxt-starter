@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>OFFLINE SYCN BLOGSPOT — Home</title>
+  <meta name="description" content="Offline Sync Blogspot with integrated AI chat widget" />
+  <style>
+    :root{
+      --red:#e53935;
+      --blue:#1976d2;
+      --muted:#9aa3b2;
+      --bg:#070708;
+      --card:#0f1113;
+      --radius:12px;
+      --maxw:1100px;
+      --gap:20px;
+      --ff: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--ff);
+      background: linear-gradient(180deg,#050506 0%, #0b0b0c 100%);
+      color:#eaf0f8;
+      padding:28px;
+      display:flex;
+      justify-content:center;
+    }
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+      display:grid;
+      grid-template-columns: 1fr 320px;
+      gap:var(--gap);
+      align-items:start;
+    }
+    header{grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .brand{display:flex; gap:12px; text-decoration:none; color:inherit; align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,var(--red),var(--blue));display:flex;align-items:center;justify-content:center;font-weight:800}
+    .logo span{font-family:monospace;color:#fff}
+    .site-title{font-size:18px;font-weight:800;background:linear-gradient(90deg,var(--red),var(--blue));-webkit-background-clip:text;background-clip:text;color:transparent}
+    nav{display:flex;gap:10px}
+    nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px}
+    nav a:hover{color:#fff;background:rgba(255,255,255,0.02);transform:translateY(-3px)}
+    .accent{height:3px;border-radius:3px;background:linear-gradient(90deg,var(--red),var(--blue));grid-column:1/-1;margin:8px 0}
+    main{grid-column:1/2}
+    .hero{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:28px;border-radius:var(--radius);box-shadow:0 10px 40px rgba(0,0,0,0.6);display:flex;gap:18px;align-items:flex-start}
+    .hero-left{flex:1}
+    .eyebrow{color:var(--red);font-weight:800;font-size:12px;text-transform:uppercase;margin-bottom:8px}
+    .hero h1{margin:0 0 10px 0;font-size:28px;color:#fff}
+    .hero p{margin:0 0 16px 0;color:var(--muted)}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:var(--blue);color:#fff;text-decoration:none;font-weight:700}
+    .meta{color:var(--muted);font-size:13px;margin-top:8px}
+    .posts{margin-top:16px;display:grid;gap:14px}
+    .post{display:flex;gap:14px;align-items:center;background:linear-gradient(180deg,var(--card),rgba(17,18,21,0.8));padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
+    .thumb{width:110px;height:72px;border-radius:8px;background:linear-gradient(135deg,var(--red),var(--blue));display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff}
+    .post h3{margin:0 0 6px 0;font-size:16px;color:#fff}
+    .post p{margin:0;color:var(--muted);font-size:13px}
+    aside{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:18px;border-radius:var(--radius);border:1px solid rgba(255,255,255,0.03)}
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:rgba(25,118,210,0.12);color:var(--blue);font-weight:800}
+    .search{margin:12px 0;display:flex;gap:8px}
+    .search input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:#fff;outline:none}
+    .note{font-size:13px;color:var(--muted);margin-bottom:10px}
+    .tags a{display:inline-block;padding:8px 10px;margin:6px 6px 0 0;border-radius:8px;background:rgba(255,255,255,0.03);color:var(--muted);text-decoration:none;font-size:13px}
+    footer{grid-column:1/-1;margin-top:18px;color:var(--muted);display:flex;justify-content:space-between;align-items:center;font-size:13px}
+    #noResults{display:none;color:#fff;background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;text-align:center;margin-top:10px}
+    /* Chat widget styles */
+    #chat-toggle{position:fixed;bottom:22px;right:22px;z-index:999;background:linear-gradient(90deg,var(--red),var(--blue));color:#fff;padding:12px 16px;border-radius:999px;box-shadow:0 10px 30px rgba(0,0,0,0.5);cursor:pointer;font-weight:800}
+    #chat-window{position:fixed;bottom:86px;right:22px;width:360px;max-height:70vh;background:linear-gradient(180deg,#0b0c0e,#0f1113);color:#eaf0f8;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,0.6);z-index:999;display:none;overflow:hidden;display:flex;flex-direction:column}
+    #chat-header{padding:12px 14px;border-bottom:1px solid rgba(255,255,255,0.03);display:flex;align-items:center;justify-content:space-between}
+    #chat-body{padding:12px;overflow:auto;flex:1}
+    .msg{margin-bottom:12px;padding:10px;border-radius:10px;max-width:86%}
+    .msg.user{background:linear-gradient(180deg,rgba(25,118,210,0.16),rgba(25,118,210,0.08));margin-left:auto;color:#eaf0f8}
+    .msg.ai{background:rgba(255,255,255,0.03);color:#eaf0f8}
+    #chat-controls{padding:12px;border-top:1px solid rgba(255,255,255,0.03);display:flex;gap:8px}
+    #chat-input{flex:1;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff;outline:none;resize:none}
+    #chat-send{padding:10px 12px;border-radius:10px;background:linear-gradient(90deg,var(--red),var(--blue));color:#fff;border:none;cursor:pointer;font-weight:700}
+    #chat-clear{background:transparent;border:none;color:var(--muted);cursor:pointer}
+    @media (max-width:980px){ #chat-window{width:92vw;right:4vw;left:4vw} .wrap{grid-template-columns:1fr} aside{order:2} .hero{flex-direction:column} }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <a class="brand" href="#">
+        <div class="logo"><span>OS</span></div>
+        <div>
+          <div class="site-title">OFFLINE SYCN BLOGSPOT</div>
+          <div style="font-size:12px;color:var(--muted)">Engineering, Linux, space tech, GST notes</div>
+        </div>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#" aria-current="page">Home</a>
+        <a href="#posts">Posts</a>
+        <a href="#about">About</a>
+      </nav>
+    </header>
+
+    <div class="accent" aria-hidden="true"></div>
+
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-left">
+          <div class="eyebrow">Welcome</div>
+          <h1 id="hero-title">Welcome to OFFLINE SYCN BLOGSPOT</h1>
+          <p>Short notes and how-tos on engineering, Linux, space tech and practical policy summaries.</p>
+          <div><a class="btn" href="#posts">See latest posts</a></div>
+          <div class="meta">Updated regularly · No tracking · Static HTML</div>
+        </div>
+        <div style="width:220px;height:140px;border-radius:10px;background:linear-gradient(135deg, rgba(25,118,210,0.08), rgba(229,57,53,0.06));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">
+          Blog Highlights
+        </div>
+      </section>
+
+      <section id="posts" class="posts" aria-label="Posts listing">
+        <article class="post" data-title="My First Blog Post">
+          <div class="thumb">1</div>
+          <div>
+            <h3>My First Blog Post</h3>
+            <p>Today I’m starting my journey into blogging. I’ll be sharing thoughts on engineering, space tech, and more.</p>
+            <div class="meta"><a href="#" style="color:var(--muted);text-decoration:none">Read now</a></div>
+          </div>
+        </article>
+
+        <article class="post" data-title="Why I Love Linux">
+          <div class="thumb">2</div>
+          <div>
+            <h3>Why I Love Linux</h3>
+            <p>Linux gives control, speed, and a sense of community. Notes and favorite distro choices for EEE work.</p>
+            <div class="meta"><a href="#" style="color:var(--muted);text-decoration:none">Read now</a></div>
+          </div>
+        </article>
+
+        <div id="noResults">No posts found. Try a different search term.</div>
+      </section>
+    </main>
+
+    <aside>
+      <div class="badge">Latest</div>
+      <div class="search" role="search">
+        <input id="searchInput" type="search" placeholder="Search posts on this page" aria-label="Search posts on this page" />
+      </div>
+      <div class="note">Client-side search filters the list below; no server required.</div>
+
+      <div id="about" class="widget">
+        <h4>About</h4>
+        <p style="color:var(--muted);margin:0">Short posts about engineering, Linux and concise policy notes. Author experiments with static-first publishing.</p>
+      </div>
+
+      <div class="widget tags">
+        <h4 style="color:#fff;margin:10px 0 8px 0">Tags</h4>
+        <a href="#" class="tag" data-tag="Linux">Linux</a>
+        <a href="#" class="tag" data-tag="Engineering">Engineering</a>
+        <a href="#" class="tag" data-tag="Policy">Policy</a>
+        <a href="#" class="tag" data-tag="Space">Space</a>
+      </div>
+    </aside>
+
+    <footer>
+      <div>© <strong>OFFLINE SYCN BLOGSPOT</strong> 2025</div>
+      <div style="color:var(--muted)">Static HTML · Built for offline-first publishing</div>
+    </footer>
+  </div>
+
+  <!-- Chat UI -->
+  <div id="chat-toggle" title="Open chat">Chat 💬</div>
+
+  <div id="chat-window" role="dialog" aria-label="AI chat">
+    <div id="chat-header">
+      <div style="font-weight:800">Assistant</div>
+      <div>
+        <button id="chat-clear" title="Clear conversation">Clear</button>
+        <button id="chat-close" title="Close" style="margin-left:8px;background:transparent;border:none;color:var(--muted);cursor:pointer">✕</button>
+      </div>
+    </div>
+
+    <div id="chat-body" aria-live="polite"></div>
+
+    <div id="chat-controls">
+      <textarea id="chat-input" rows="2" placeholder="Ask me anything about the blog, coding, or Linux..." aria-label="Chat message"></textarea>
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
+
+  <script>
+    /* CONFIG: choose provider and set API key
+       provider = "openai" or "gemini"
+       Replace API_KEY with your key string.
+       Note: embedding API keys directly in client-side code exposes them publicly.
+       For production, route requests through a server or serverless function that holds the key securely.
+    */
+    const config = {
+      provider: "openai", // "openai" or "gemini"
+      API_KEY: "YOUR_API_KEY_HERE",
+      // Optional: model names
+      openaiModel: "gpt-4o-mini", // or gpt-4.1, etc.
+      geminiModel: "gemini-pro"   // or your chosen Gemini model
+    };
+
+    // UI elements
+    const toggle = document.getElementById('chat-toggle');
+    const win = document.getElementById('chat-window');
+    const closeBtn = document.getElementById('chat-close');
+    const clearBtn = document.getElementById('chat-clear');
+    const bodyEl = document.getElementById('chat-body');
+    const inputEl = document.getElementById('chat-input');
+    const sendBtn = document.getElementById('chat-send');
+
+    // Simple conversation storage (in-memory)
+    let convo = [];
+
+    // Helpers
+    function appendMessage(role, text){
+      const div = document.createElement('div');
+      div.className = 'msg ' + (role === 'user' ? 'user' : 'ai');
+      div.textContent = text;
+      bodyEl.appendChild(div);
+      bodyEl.scrollTop = bodyEl.scrollHeight;
+    }
+
+    function setLoading(loading){
+      sendBtn.disabled = loading;
+      sendBtn.textContent = loading ? 'Thinking...' : 'Send';
+    }
+
+    // Wire UI
+    toggle.addEventListener('click', ()=>{ win.style.display = win.style.display === 'flex' ? 'none' : 'flex'; if(win.style.display==='flex') inputEl.focus(); });
+    closeBtn.addEventListener('click', ()=> win.style.display = 'none');
+    clearBtn.addEventListener('click', ()=>{ convo = []; bodyEl.innerHTML = ''; });
+
+    // Keyboard send: Ctrl+Enter or Enter when not empty
+    inputEl.addEventListener('keydown', (e)=>{
+      if((e.key === 'Enter' && e.ctrlKey) || (e.key === 'Enter' && !e.shiftKey)){
+        e.preventDefault();
+        sendBtn.click();
+      }
+    });
+
+    // Main send handler
+    sendBtn.addEventListener('click', async ()=>{
+      const text = inputEl.value.trim();
+      if(!text) return;
+      appendMessage('user', text);
+      inputEl.value = '';
+      setLoading(true);
+
+      try {
+        const reply = await askAI(text, convo);
+        appendMessage('ai', reply);
+        convo.push({role:'user', content:text}, {role:'ai', content:reply});
+      } catch(err){
+        appendMessage('ai', 'Error: ' + (err.message || String(err)));
+      } finally {
+        setLoading(false);
+      }
+    });
+
+    // Ask AI: routes request to chosen provider
+    async function askAI(prompt, history=[]){
+      if(!config.API_KEY || config.API_KEY === "YOUR_API_KEY_HERE"){
+        throw new Error('API key not set in config');
+      }
+
+      if(config.provider === 'openai'){
+        return await askOpenAI(prompt, history);
+      } else if(config.provider === 'gemini'){
+        return await askGemini(prompt, history);
+      } else {
+        throw new Error('Unsupported provider in config');
+      }
+    }
+
+    // OpenAI minimal client-side example (fetch to REST endpoint)
+    async function askOpenAI(prompt, history){
+      // Client-side direct calls with API key are insecure; this example calls OpenAI REST directly.
+      // For production use, proxy requests through your server.
+      const url = 'https://api.openai.com/v1/chat/completions';
+      const messages = [{role:'system', content:'You are a helpful assistant for a technical blog.'}]
+        .concat(history.map(h=> ({role:h.role, content:h.content})))
+        .concat([{role:'user', content: prompt}]);
+
+      const resp = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json', 'Authorization':'Bearer ' + config.API_KEY },
+        body: JSON.stringify({
+          model: config.openaiModel,
+          messages: messages,
+          max_tokens: 600,
+          temperature: 0.2
+        })
+      });
+
+      if(!resp.ok){
+        const text = await resp.text();
+        throw new Error('OpenAI error: ' + resp.status + ' ' + text);
+      }
+      const data = await resp.json();
+      const reply = data.choices?.[0]?.message?.content || 'No response';
+      return reply;
+    }
+
+    // Gemini (Google) minimal client-side example using REST (key in query)
+    async function askGemini(prompt, history){
+      // Example uses the Generative Language REST endpoint with key query param.
+      // For production, proxy requests through your server.
+      const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(config.geminiModel)}:generateContent?key=${encodeURIComponent(config.API_KEY)}`;
+
+      const reqBody = {
+        // Simple text-only request
+        prompt: {
+          text: [
+            {author: "system", text: "You are a helpful technical blog assistant."},
+            ...history.flatMap(h => [{author: h.role === 'user' ? 'user' : 'assistant', text: h.content}]),
+            {author: "user", text: prompt}
+          ]
+        },
+        candidateCount: 1,
+        safetySetting: [{category: "CATEGORY_GENERAL", threshold: "BLOCK" }]
+      };
+
+      const resp = await fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type':'application/json' },
+        body: JSON.stringify(reqBody)
+      });
+
+      if(!resp.ok){
+        const text = await resp.text();
+        throw new Error('Gemini error: ' + resp.status + ' ' + text);
+      }
+      const data = await resp.json();
+      const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || 'No response';
+      return reply;
+    }
+
+    // Simple client-side search (keeps previous website behavior)
+    (function(){
+      const input = document.getElementById('searchInput');
+      const posts = Array.from(document.querySelectorAll('.post'));
+      const noResults = document.getElementById('noResults');
+      const tags = Array.from(document.querySelectorAll('.tag'));
+      function norm(s){ return (s||'').toLowerCase().trim(); }
+      function filter(q){
+        const qn = norm(q);
+        let visible = 0;
+        posts.forEach(p=>{
+          const title = norm(p.dataset.title || p.querySelector('h3')?.textContent);
+          const body = norm(p.querySelector('p')?.textContent);
+          if(!qn || (title + ' ' + body).includes(qn)){
+            p.style.display = '';
+            visible++;
+          } else p.style.display = 'none';
+        });
+        noResults.style.display = visible ? 'none' : '';
+      }
+      input.addEventListener('input', e=>filter(e.target.value));
+      tags.forEach(t=> t.addEventListener('click', e=>{ e.preventDefault(); const q = t.dataset.tag || t.textContent; input.value = q; input.focus(); filter(q); }));
+      document.addEventListener('keydown', e=>{ if(e.key === '/' && document.activeElement !== input){ e.preventDefault(); input.focus(); input.select?.(); } });
+      filter('');
+    })();
+  </script>
+</body>
+</html>
