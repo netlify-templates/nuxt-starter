@@ -17,7 +17,7 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@nuxt/image": "^1.10.0",
+    "@nuxt/image": "^2.0.0",
     "@tailwindcss/vite": "^4.0.16"
   }
 }
