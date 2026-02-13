@@ -18,7 +18,7 @@ Clicking this button will create a new repo for you that looks exactly like this
 
 ## Features
 
-- 🚀 Nuxt 3 with Vue 3
+- 🚀 Nuxt 4 with Vue 3
 - 🎨 Tailwind CSS for styling
 - 🖼️ Nuxt Image for optimized image handling
 - 🎯 Nuxt Icon for easy icon integration
