@@ -10,6 +10,6 @@ export default defineNuxtConfig({
     ],
   },
   experimental: { appManifest: false },
-  modules: ["nuxt-icon", "@nuxt/image"],
+  modules: ["@nuxt/icon", "@nuxt/image"],
   compatibilityDate: "2024-12-18",
 });
